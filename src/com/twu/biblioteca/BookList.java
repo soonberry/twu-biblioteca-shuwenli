@@ -9,8 +9,11 @@ public class BookList {
 
     private List<Book> bookList;
 
-    public List<Book> displayList() {
+    public BookList(List<Book> bookList) {
+        this.bookList = bookList;
+    }
 
+    public List<Book> displayList() {
 
         return bookList;
     }

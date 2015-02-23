@@ -14,4 +14,19 @@ public class Book {
         this.yearPublished = yearPublished;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public String getYearPublished() {
+        return yearPublished;
+    }
+
+    public String displayBook() {
+        return name+","+author+","+yearPublished;
+    }
 }
