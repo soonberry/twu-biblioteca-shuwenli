@@ -3,6 +3,7 @@ package com.twu.biblioteca;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class MenuTest {
 
@@ -28,6 +29,6 @@ public class MenuTest {
 
     @Test
     public void testChooseOption() throws Exception {
-        assertEquals("List Books",new Menu().chooseOption());
+        assertTrue(new Menu().chooseOption());
     }
 }

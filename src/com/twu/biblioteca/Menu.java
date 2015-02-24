@@ -29,9 +29,12 @@ public class Menu {
         return "List Books";
     }
 
-    public String chooseOption() {
+    public boolean chooseOption() {
         Scanner scanner=new Scanner(System.in);
         String option=scanner.nextLine();
-        return option;
+        if (option.equals("List Books"))
+            return true;
+        else
+            return false;
     }
 }
