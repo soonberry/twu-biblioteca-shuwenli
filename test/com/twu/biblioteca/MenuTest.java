@@ -25,13 +25,7 @@ public class MenuTest {
 
     @Test
     public void testOptions() throws Exception {
-        assertEquals("List Books", new Menu().options());
-    }
-
-    @Test
-    public void testChooseOption() throws Exception {
-        assertTrue(new Menu().switchOption("List Books"));
-        assertFalse(new Menu().switchOption(""));
+        assertEquals("List Books,Quit", new Menu().options());
     }
 
     @Test
@@ -39,4 +33,13 @@ public class MenuTest {
         assertEquals("Insert Wrong!Please Insert again!",new Menu().invalidMessage());
 
     }
+
+
+    @Test
+    public void testChooseOption() throws Exception {
+        assertTrue(new Menu().switchOption("List Books"));
+        assertFalse(new Menu().switchOption(""));
+//        assertEquals("3",new Menu().switchOption("Quit"));
+    }
+
 }

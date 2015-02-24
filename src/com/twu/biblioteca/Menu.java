@@ -26,7 +26,7 @@ public class Menu {
     }
 
     public String options() {
-        return "List Books";
+        return "List Books,Quit";
     }
 
     public void chooseOption() {
