@@ -26,7 +26,8 @@ public class Book {
         return yearPublished;
     }
 
-    public String displayBook() {
-        return name+","+author+","+yearPublished;
+    @Override
+    public String toString() {
+        return name + "," + author + "," + yearPublished;
     }
 }
