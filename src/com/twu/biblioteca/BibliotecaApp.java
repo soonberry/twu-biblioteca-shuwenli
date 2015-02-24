@@ -7,7 +7,6 @@ public class BibliotecaApp {
 
         //    System.out.println("Hello, world!");
         Menu menu = new Menu();
-        System.out.println(menu.welcomeMessage());
     }
 
 }

@@ -10,8 +10,8 @@ import static org.junit.Assert.assertEquals;
 public class BookListTest {
     @Test
     public void testDisplayList() throws Exception {
-        Book book1=new Book("a","b","c");
-        Book book2=new Book("d","e","f");
+        Book book1 = new Book("a", "b", "c");
+        Book book2 = new Book("d", "e", "f");
         List<Book> list = new ArrayList<Book>();
 
         list.add(book1);
@@ -19,7 +19,8 @@ public class BookListTest {
 
         BookList bookList = new BookList(list);
 
+//        assertEquals(list,bookList);
 //        assertEquals("1,a,b,c", bookList.displayList());
-        assertEquals("1,a,b,c\n2,d,e,f\n",bookList.toString());
+        assertEquals("1,a,b,c\n2,d,e,f\n", bookList.toString());
     }
 }

@@ -1,5 +1,6 @@
 package com.twu.biblioteca;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
@@ -11,8 +12,10 @@ public class BookList {
     private List<Book> bookList;
 
     public BookList(List<Book> list) {
-        bookList=list;
+        bookList = list;
     }
+
+    public BookList(){ bookList=new ArrayList<Book>();}
 
     public List<Book> getBookList() {
         return bookList;
@@ -20,12 +23,12 @@ public class BookList {
 
     @Override
     public String toString() {
-        String result="";
-        int i=1;
-        Iterator iterator=bookList.iterator();
+        String result = "";
+        int i = 1;
+        Iterator iterator = bookList.iterator();
 
-        while(iterator.hasNext()){
-            result+=i+++","+iterator.next().toString()+"\n";
+        while (iterator.hasNext()) {
+            result += i++ + "," + iterator.next().toString() + "\n";
         }
 
         return result;
