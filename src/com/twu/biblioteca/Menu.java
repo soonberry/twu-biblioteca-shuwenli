@@ -13,7 +13,7 @@ public class Menu {
         this.booklist = new BookList();
         System.out.println(welcomeMessage());
         System.out.println(options());
-  //      chooseOption();
+//        chooseOption();
     }
 
     public String welcomeMessage() {
@@ -29,12 +29,24 @@ public class Menu {
         return "List Books";
     }
 
-    public boolean chooseOption() {
-        Scanner scanner=new Scanner(System.in);
-        String option=scanner.nextLine();
+    public void chooseOption() {
+        Scanner scanner = new Scanner(System.in);
+        String option = scanner.nextLine();
+        if(switchOption(option)) {
+            System.out.println("List all the books below:");
+            listBooks();
+        }
+        else
+            System.out.println(invalidMessage());
+    }
+
+    public String invalidMessage() {
+        return "Insert Wrong!Please Insert again!";
+    }
+
+    public boolean switchOption(String option) {
         if (option.equals("List Books"))
             return true;
-        else
-            return false;
+        else return false;
     }
 }
