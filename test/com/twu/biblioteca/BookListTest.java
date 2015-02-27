@@ -44,11 +44,19 @@ public class BookListTest {
     }
 
     @Test
-    public void testGetStatus() throws Exception {
+    public void test_Get_Status() throws Exception {
         BookList bookList=new BookList(initBookList());
 
         assertEquals("keep",bookList.getStatus("a"));
         assertEquals(null,bookList.getStatus("b"));
+    }
+
+    @Test
+    public void test_Set_Status() throws Exception {
+        BookList bookList=new BookList(initBookList());
+        bookList.setStatus("a");
+
+        assertEquals("out",bookList.getStatus("a"));
 
     }
 }

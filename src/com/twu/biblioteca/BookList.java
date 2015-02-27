@@ -48,4 +48,9 @@ public class BookList {
         Book book=searchByBookName(bookName);
         return bookList.get(book);
     }
+
+    public void setStatus(String bookName) {
+        Book book=searchByBookName(bookName);
+        bookList.put(book,"out");
+    }
 }

@@ -49,6 +49,8 @@ public class Menu {
         if (option.equals("List Books")||option.equals("1")) {
             System.out.println("All the books are list below:");
             listBooks();
+            CheckOutBook checkOutBook=new CheckOutBook();
+            checkOutBook.checkBooks();
             return true;
         }
         else if (option.equals("Quit")||option.equals("2")){

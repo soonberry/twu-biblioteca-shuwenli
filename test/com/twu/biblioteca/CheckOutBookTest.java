@@ -1,32 +1,28 @@
 package com.twu.biblioteca;
 
 import org.junit.Test;
-import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 public class CheckOutBookTest {
-    @Mock
-    private CheckOutBook checkOutBook;
-    private BookList booklist;
-    private Book book;
 
-    public void setUp() throws Exception{
-        MockitoAnnotations.initMocks(this);
-
-        book=new Book("a","b","c");
-        booklist=new BookList();
-
-    }
 
     @Test
-    public void testCheckOut() throws Exception {
+    public void should_Check_BookName() throws Exception {
+        Book book=new Book("a","b","c");
+        BookList bookList=mock(BookList.class);
 
-        when(booklist.searchByBookName("a")).thenReturn(new Book("a","b","c"));
+        when(bookList.searchByBookName("a")).thenReturn(book);
+        when(bookList.getStatus("a")).thenReturn("keep");
 
-        assertEquals(book.getName(),booklist.searchByBookName("a"));
+        assertEquals(book,bookList.searchByBookName("a"));
+
+        CheckOutBook checkOutBook=new CheckOutBook();
+
+        assertTrue(checkOutBook.checkOut("a",bookList));
 
     }
 
