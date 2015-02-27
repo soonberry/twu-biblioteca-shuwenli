@@ -12,8 +12,7 @@ public class Menu {
     public Menu() {
         this.booklist = new BookList();
         System.out.println(welcomeMessage());
-        System.out.println(options());
-//        chooseOption();
+//        System.out.println(options());
     }
 
     public String welcomeMessage() {
@@ -26,18 +25,20 @@ public class Menu {
     }
 
     public String options() {
-        return "List Books,Quit";
+        return "Please choose: 1.List Books; 2.Quit";
     }
 
-    public void chooseOption() {
+
+    public void optionMenu() {
+
+        System.out.println(options());
         Scanner scanner = new Scanner(System.in);
         String option = scanner.nextLine();
-        if(switchOption(option)) {
-            System.out.println("List all the books below:");
-            listBooks();
+
+        while (switchOption(option)) {
+            System.out.println(options());
+            option=scanner.nextLine();
         }
-        else
-            System.out.println(invalidMessage());
     }
 
     public String invalidMessage() {
@@ -45,8 +46,18 @@ public class Menu {
     }
 
     public boolean switchOption(String option) {
-        if (option.equals("List Books"))
+        if (option.equals("List Books")||option.equals("1")) {
+            System.out.println("All the books are list below:");
+            listBooks();
             return true;
-        else return false;
+        }
+        else if (option.equals("Quit")||option.equals("2")){
+            System.out.println("Bye-bye!");
+            return false;
+        }
+        else {
+            System.out.println(invalidMessage());
+            return true;
+        }
     }
 }

@@ -2,9 +2,7 @@ package com.twu.biblioteca;
 
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 public class MenuTest {
 
@@ -23,10 +21,10 @@ public class MenuTest {
         assertEquals("", new Menu().listBooks());
     }
 
-    @Test
-    public void testOptions() throws Exception {
-        assertEquals("List Books,Quit", new Menu().options());
-    }
+//    @Test
+//    public void testOptions() throws Exception {
+//        assertEquals("List Books,Quit", new Menu().options());
+//    }
 
     @Test
     public void testInvalidMessage() throws Exception {
@@ -34,12 +32,11 @@ public class MenuTest {
 
     }
 
-
     @Test
-    public void testChooseOption() throws Exception {
+    public void testSwitchOption() throws Exception {
+        assertTrue(new Menu().switchOption("List book"));
+        assertFalse(new Menu().switchOption("Quit"));
         assertTrue(new Menu().switchOption("List Books"));
-        assertFalse(new Menu().switchOption(""));
-//        assertEquals("3",new Menu().switchOption("Quit"));
     }
 
 }

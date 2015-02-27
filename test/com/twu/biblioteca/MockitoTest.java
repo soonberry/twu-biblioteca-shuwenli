@@ -3,6 +3,7 @@ package com.twu.biblioteca;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.io.BufferedReader;
 import java.util.Iterator;
 import java.util.List;
 
@@ -34,5 +35,8 @@ public class MockitoTest {
         verify(i, times(2)).next();
         //assert
         assertEquals("Hello World", result1);
+
+        BufferedReader bufferedReader=mock(BufferedReader.class);
+        when(bufferedReader.readLine()).thenReturn("hello");
     }
 }
