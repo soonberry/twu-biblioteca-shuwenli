@@ -35,7 +35,7 @@ public class Menu {
 
         while (switchOption(option)) {
             System.out.println(options());
-            option=scanner.nextLine();
+            option = scanner.nextLine();
         }
     }
 
@@ -44,36 +44,36 @@ public class Menu {
     }
 
     public boolean switchOption(String option) {
-        if (option.equals("List Books")||option.equals("1")) {
+        if (option.equals("List Books") || option.equals("1")) {
             System.out.println("All the books are list below:");
             System.out.println(listBooks());
             bookOperation();
             return true;
-        }
-        else if (option.equals("Quit")||option.equals("2")){
+        } else if (option.equals("Quit") || option.equals("2")) {
             System.out.println("Bye-bye!");
             return false;
-        }
-        else {
+        } else {
             System.out.println(invalidMessage());
             return true;
         }
     }
 
     private void bookOperation() {
-        System.out.println("Please choose:\n1.check out book;\n2.return book;\n3.quit;");
-        Scanner scanner=new Scanner(System.in);
-        String option=scanner.nextLine();
-        while(!option.equals("3")){
-            if (option.equals("1")){
-                CheckOutBook checkOutBook=new CheckOutBook();
+        System.out.println("Please choose:\n1.Check out book;\n2.Return book;\n3.Quit;");
+        Scanner scanner = new Scanner(System.in);
+        String option = scanner.nextLine();
+        while (!option.equals("3")) {
+            if (option.equals("1")) {
+                CheckOutBook checkOutBook = new CheckOutBook();
                 checkOutBook.checkBooks(booklist);
-            }
-            else {
+            } else if (option.equals("2")) {
+                ReturnBook returnBook = new ReturnBook();
+                returnBook.checkBooks(booklist);
+            } else {
                 System.out.println("Please input the right number.");
             }
-            System.out.println("Please choose:\n1.check out book;\n2.return book;\n3.quit.");
-            option=scanner.nextLine();
+            System.out.println("Please choose:\n1.Check out book;\n2.Return book;\n3.Quit.");
+            option = scanner.nextLine();
 
         }
 
