@@ -17,16 +17,27 @@ public class CheckOutBook {
         return false;
     }
 
-    public void checkBooks(BookList bookList) {
-        System.out.println("Which book do you want to check out?Please input the bookName,or input exit.");
+    public boolean checkBooks(BookList bookList) {
+        welcomeMessage();
         Scanner scanner=new Scanner(System.in);
         String option=scanner.nextLine();
         while (!option.equals("exit")){
-            if(!checkOut(option, bookList))
+            if(checkOut(option, bookList))
+                successMessage(option);
+            else
                 invalidMessage();
+            welcomeMessage();
             option=scanner.nextLine();
         }
+        return false;
+    }
 
+    private void welcomeMessage(){
+        System.out.println("Which book do you want to check out?\nPlease input the bookName,or input exit.");
+    }
+
+    private void successMessage(String bookName) {
+        System.out.println("The book "+bookName+" is sucessfully checked out!");
     }
 
     private void invalidMessage() {

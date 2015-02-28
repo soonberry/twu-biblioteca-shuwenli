@@ -19,17 +19,19 @@ public class BookListTest {
         map.put(book2,"keep");
         map.put(book1,"keep");
 
-
         return map;
     }
 
     @Test
-    public void testDisplayList() throws Exception {
+    public void checked_out_books_should_not_list() throws Exception {
 
         BookList bookList=new BookList();
 //        assertEquals(list,bookList);
 //        assertEquals("1,a,b,c", bookList.displayList());
-        assertEquals("1,a,b,c\n2,d,e,f\n", bookList.toString());
+        assertEquals("1: a,b,c\n2: d,e,f\n", bookList.toString());
+
+        bookList.switchStatus("a");
+        assertEquals("1: d,e,f\n",bookList.toString());
     }
 
     @Test
@@ -52,11 +54,13 @@ public class BookListTest {
     }
 
     @Test
-    public void test_Set_Status() throws Exception {
+    public void test_Switch_Status() throws Exception {
         BookList bookList=new BookList();
         bookList.switchStatus("a");
 
         assertEquals("checked", bookList.getStatus("a"));
+        bookList.switchStatus("a");
+        assertEquals("keep",bookList.getStatus("a"));
 
     }
 }

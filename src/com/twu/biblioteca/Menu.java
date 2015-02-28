@@ -61,7 +61,7 @@ public class Menu {
     }
 
     private void bookOperation() {
-        System.out.println("Please choose:1.check out book.  2.return book  3.exit");
+        System.out.println("Please choose:\n1.check out book;\n2.return book;\n3.quit;");
         Scanner scanner=new Scanner(System.in);
         String option=scanner.nextLine();
         while(!option.equals("3")){
@@ -72,6 +72,8 @@ public class Menu {
             else {
                 System.out.println("Please input the right number.");
             }
+            System.out.println("Please choose:\n1.check out book;\n2.return book;\n3.quit.");
+            option=scanner.nextLine();
 
         }
 

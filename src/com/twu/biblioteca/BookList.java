@@ -31,7 +31,9 @@ public class BookList {
         Iterator<Book> iterator = bookList.keySet().iterator();
 
         while (iterator.hasNext()) {
-            result += i++ + "," + iterator.next().toString() + "\n";
+            Book book=iterator.next();
+            if (getStatus(book.getName()).equals("keep"))
+              result += i++ + ": " + book.toString() + "\n";
         }
 
         return result;
@@ -43,7 +45,7 @@ public class BookList {
         while (iterator.hasNext()) {
             Book book=iterator.next();
             if(book.getName().equals(bookName)) {
-                System.out.println(book);
+      //          System.out.println(book);
                 return book;
             }
         }
