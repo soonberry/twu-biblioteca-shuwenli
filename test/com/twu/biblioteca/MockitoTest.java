@@ -13,7 +13,7 @@ import static org.mockito.Mockito.*;
 public class MockitoTest {
     @Test
     public void testMockito() throws Exception {
-        List<String> list=mock(List.class);
+        List<String> list = mock(List.class);
         //设置方法的预期返回值
         when(list.get(0)).thenReturn("helloworld");
 
@@ -27,16 +27,16 @@ public class MockitoTest {
 
 
         //arrange
-        Iterator i=mock(Iterator.class);
+        Iterator i = mock(Iterator.class);
         when(i.next()).thenReturn("Hello").thenReturn("World");
         //act
-        String result1=i.next()+" "+i.next();
+        String result1 = i.next() + " " + i.next();
         //verify
         verify(i, times(2)).next();
         //assert
         assertEquals("Hello World", result1);
 
-        BufferedReader bufferedReader=mock(BufferedReader.class);
+        BufferedReader bufferedReader = mock(BufferedReader.class);
         when(bufferedReader.readLine()).thenReturn("hello");
     }
 }

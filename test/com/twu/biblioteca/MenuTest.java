@@ -19,7 +19,7 @@ public class MenuTest {
 
     @Test
     public void testInvalidMessage() throws Exception {
-        assertEquals("Insert Wrong!Please Insert again!",new Menu().invalidMessage());
+        assertEquals("Insert Wrong!Please Insert again!", new Menu().invalidMessage());
 
     }
 

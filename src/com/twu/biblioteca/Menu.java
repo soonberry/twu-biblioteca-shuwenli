@@ -74,8 +74,6 @@ public class Menu {
             }
             System.out.println("Please choose:\n1.Check out book;\n2.Return book;\n3.Quit.");
             option = scanner.nextLine();
-
         }
-
     }
 }
