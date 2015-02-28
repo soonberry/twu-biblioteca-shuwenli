@@ -13,7 +13,13 @@ public class BookList {
         bookList = map;
     }
 
-    public BookList(){ bookList= new HashMap<Book, String>();}
+    public BookList(){
+        bookList= new HashMap<Book, String>();
+        Book book1=new Book("a","b","c");
+        Book book2=new Book("d","e","f");
+        bookList.put(book2,"keep");
+        bookList.put(book1,"keep");
+    }
 
     public BookList(Book book){ bookList= new HashMap<Book, String>(); bookList.put(book,"keep");}
 
@@ -49,8 +55,10 @@ public class BookList {
         return bookList.get(book);
     }
 
-    public void setStatus(String bookName) {
+    public void switchStatus(String bookName) {
         Book book=searchByBookName(bookName);
-        bookList.put(book,"out");
+        if (getStatus(bookName).equals("keep"))
+            bookList.put(book,"checked");
+        else bookList.put(book,"keep");
     }
 }

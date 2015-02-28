@@ -26,7 +26,7 @@ public class BookListTest {
     @Test
     public void testDisplayList() throws Exception {
 
-        BookList bookList=new BookList(initBookList());
+        BookList bookList=new BookList();
 //        assertEquals(list,bookList);
 //        assertEquals("1,a,b,c", bookList.displayList());
         assertEquals("1,a,b,c\n2,d,e,f\n", bookList.toString());
@@ -45,7 +45,7 @@ public class BookListTest {
 
     @Test
     public void test_Get_Status() throws Exception {
-        BookList bookList=new BookList(initBookList());
+        BookList bookList=new BookList();
 
         assertEquals("keep",bookList.getStatus("a"));
         assertEquals(null,bookList.getStatus("b"));
@@ -53,10 +53,10 @@ public class BookListTest {
 
     @Test
     public void test_Set_Status() throws Exception {
-        BookList bookList=new BookList(initBookList());
-        bookList.setStatus("a");
+        BookList bookList=new BookList();
+        bookList.switchStatus("a");
 
-        assertEquals("out",bookList.getStatus("a"));
+        assertEquals("checked", bookList.getStatus("a"));
 
     }
 }

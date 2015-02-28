@@ -23,7 +23,6 @@ public class CheckOutBookTest {
         CheckOutBook checkOutBook=new CheckOutBook();
 
         assertTrue(checkOutBook.checkOut("a",bookList));
-
     }
 
 }

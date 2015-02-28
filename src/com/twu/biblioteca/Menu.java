@@ -11,8 +11,6 @@ public class Menu {
 
     public Menu() {
         this.booklist = new BookList();
-        System.out.println(welcomeMessage());
-//        System.out.println(options());
     }
 
     public String welcomeMessage() {
@@ -48,9 +46,8 @@ public class Menu {
     public boolean switchOption(String option) {
         if (option.equals("List Books")||option.equals("1")) {
             System.out.println("All the books are list below:");
-            listBooks();
-            CheckOutBook checkOutBook=new CheckOutBook();
-            checkOutBook.checkBooks();
+            System.out.println(listBooks());
+            bookOperation();
             return true;
         }
         else if (option.equals("Quit")||option.equals("2")){
@@ -61,5 +58,22 @@ public class Menu {
             System.out.println(invalidMessage());
             return true;
         }
+    }
+
+    private void bookOperation() {
+        System.out.println("Please choose:1.check out book.  2.return book  3.exit");
+        Scanner scanner=new Scanner(System.in);
+        String option=scanner.nextLine();
+        while(!option.equals("3")){
+            if (option.equals("1")){
+                CheckOutBook checkOutBook=new CheckOutBook();
+                checkOutBook.checkBooks(booklist);
+            }
+            else {
+                System.out.println("Please input the right number.");
+            }
+
+        }
+
     }
 }
