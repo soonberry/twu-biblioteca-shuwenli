@@ -3,10 +3,8 @@ package com.twu.biblioteca;
 /**
  * Created by shuwenli on 15-2-23.
  */
-public class Book {
-    String name;
+public class Book extends Goods {
     String author;
-    String yearPublished;
 
     public Book(String name, String author, String yearPublished) {
         this.name = name;
@@ -14,17 +12,11 @@ public class Book {
         this.yearPublished = yearPublished;
     }
 
-    public String getName() {
-        return name;
-    }
 
     public String getAuthor() {
         return author;
     }
 
-    public String getYearPublished() {
-        return yearPublished;
-    }
 
     @Override
     public String toString() {

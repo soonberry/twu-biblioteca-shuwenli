@@ -7,10 +7,10 @@ import java.util.Scanner;
  */
 public class Menu {
 
-    private BookList booklist;
+    private GoodsList booklist;
 
     public Menu() {
-        this.booklist = new BookList();
+        this.booklist = new GoodsList();
     }
 
     public String welcomeMessage() {

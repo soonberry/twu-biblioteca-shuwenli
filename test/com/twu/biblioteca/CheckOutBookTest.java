@@ -14,25 +14,25 @@ public class CheckOutBookTest {
     @Test
     public void should_CheckOut_by_BookName_by_using_mock() throws Exception {
         Book book = new Book("a", "b", "c");
-        BookList bookList = mock(BookList.class);
+        GoodsList goodsList = mock(GoodsList.class);
 
-        when(bookList.searchByBookName("a")).thenReturn(book);
-        when(bookList.getStatus("a")).thenReturn("keep");
+        when(goodsList.searchByBookName("a")).thenReturn(book);
+        when(goodsList.getStatus("a")).thenReturn("keep");
 
-        assertEquals(book, bookList.searchByBookName("a"));
+        assertEquals(book, goodsList.searchByBookName("a"));
 
         CheckOutBook checkOutBook = new CheckOutBook();
 
-        assertTrue(checkOutBook.checkOut("a", bookList));
+        assertTrue(checkOutBook.checkOut("a", goodsList));
     }
 
     @Test
     public void testCheckOut() throws Exception {
-        BookList bookList = new BookList();
+        GoodsList goodsList = new GoodsList();
 
         CheckOutBook checkOutBook = new CheckOutBook();
-        assertTrue(checkOutBook.checkOut("a", bookList));
-        assertFalse(checkOutBook.checkOut("b", bookList));
+        assertTrue(checkOutBook.checkOut("a", goodsList));
+        assertFalse(checkOutBook.checkOut("b", goodsList));
 
     }
 }

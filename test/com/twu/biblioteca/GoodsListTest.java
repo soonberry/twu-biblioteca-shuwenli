@@ -9,7 +9,7 @@ import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-public class BookListTest {
+public class GoodsListTest {
 
     private Map<Book, String> initBookList() {
         Book book1 = new Book("a", "b", "c");
@@ -25,42 +25,42 @@ public class BookListTest {
     @Test
     public void checked_out_books_should_not_list() throws Exception {
 
-        BookList bookList = new BookList();
+        GoodsList goodsList = new GoodsList();
 //        assertEquals(list,bookList);
 //        assertEquals("1,a,b,c", bookList.displayList());
-        assertEquals("1: a,b,c\n2: d,e,f\n", bookList.toString());
+        assertEquals("1: d,e,f\n2: a,b,c\n", goodsList.toString());
 
-        bookList.switchStatus("a");
-        assertEquals("1: d,e,f\n", bookList.toString());
+        goodsList.switchStatus("a");
+        assertEquals("1: d,e,f\n", goodsList.toString());
     }
 
     @Test
     public void test_Search_Book_By_Name() throws Exception {
-        BookList bookList = new BookList(initBookList());
+        GoodsList goodsList = new GoodsList();
         Book book = mock(Book.class);
         when(book.getName()).thenReturn("a");
 
-        assertEquals(book.getName(), bookList.searchByBookName("a").getName());
-        assertEquals(null, bookList.searchByBookName("b"));
+        assertEquals(book.getName(), goodsList.searchByBookName("a").getName());
+        assertEquals(null, goodsList.searchByBookName("b"));
 
     }
 
     @Test
     public void test_Get_Status() throws Exception {
-        BookList bookList = new BookList();
+        GoodsList goodsList = new GoodsList();
 
-        assertEquals("keep", bookList.getStatus("a"));
-        assertEquals(null, bookList.getStatus("b"));
+        assertEquals("keep", goodsList.getStatus("a"));
+        assertEquals(null, goodsList.getStatus("b"));
     }
 
     @Test
     public void test_Switch_Status() throws Exception {
-        BookList bookList = new BookList();
-        bookList.switchStatus("a");
+        GoodsList goodsList = new GoodsList();
+        goodsList.switchStatus("a");
 
-        assertEquals("checked", bookList.getStatus("a"));
-        bookList.switchStatus("a");
-        assertEquals("keep", bookList.getStatus("a"));
+        assertEquals("checked", goodsList.getStatus("a"));
+        goodsList.switchStatus("a");
+        assertEquals("keep", goodsList.getStatus("a"));
 
     }
 }
