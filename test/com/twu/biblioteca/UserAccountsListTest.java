@@ -23,7 +23,7 @@ public class UserAccountsListTest {
         UserAccountsList userAccountsList = new UserAccountsList();
 
         assertTrue(userAccountsList.checkLogin("111-1111", "111"));
-        assertFalse(userAccountsList.checkLogin("111-1111","22y"));
+        assertFalse(userAccountsList.checkLogin("111-1111", "22y"));
 
     }
 

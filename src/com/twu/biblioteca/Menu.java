@@ -13,7 +13,7 @@ public class Menu {
 
     public Menu() {
         this.booklist = new GoodsList();
-        this.userAccountsList=new UserAccountsList();
+        this.userAccountsList = new UserAccountsList();
     }
 
     public String welcomeMessage() {
@@ -53,11 +53,10 @@ public class Menu {
             System.out.println(listBooks());
             bookOperation();
             return true;
-        }else if (option.equals("2")){
-            System.out.println("My account information is :\n"+userAccount.toString());
+        } else if (option.equals("2")) {
+            System.out.println("My account information is :\n" + userAccount.toString());
             return true;
-        }
-        else if (option.equals("Quit") || option.equals("3")) {
+        } else if (option.equals("Quit") || option.equals("3")) {
             System.out.println("Bye-bye!");
             return false;
         } else {
@@ -73,10 +72,10 @@ public class Menu {
         while (!option.equals("3")) {
             if (option.equals("1")) {
                 CheckOutBook checkOutBook = new CheckOutBook();
-                checkOutBook.checkBooks(booklist,userAccount);
+                checkOutBook.checkBooks(booklist, userAccount);
             } else if (option.equals("2")) {
                 ReturnBook returnBook = new ReturnBook();
-                returnBook.checkBooks(booklist,userAccount);
+                returnBook.checkBooks(booklist, userAccount);
             } else {
                 System.out.println("Please input the right number.");
             }
@@ -85,11 +84,11 @@ public class Menu {
         }
     }
 
-    public void login(){
-        boolean flag=true;
+    public void login() {
+        boolean flag = true;
         Scanner scanner = new Scanner(System.in);
 
-        while(flag) {
+        while (flag) {
             System.out.println("Please input your account number and password:");
 
             String number = scanner.nextLine();
@@ -97,9 +96,8 @@ public class Menu {
             if (userAccountsList.checkLogin(number, password)) {
                 userAccount = userAccountsList.getUserAccount(number, password);
                 System.out.println("Login success!Welcome " + userAccount.getName());
-                flag=false;
-            }
-            else System.out.println("Number or password is wrong!Please input again!");
+                flag = false;
+            } else System.out.println("Number or password is wrong!Please input again!");
         }
 
     }

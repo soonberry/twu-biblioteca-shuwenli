@@ -17,7 +17,7 @@ public class GoodsList {
         goodsList = new HashMap<Goods, GoodsStatus>();
         Goods book1 = new Book("a", "b", "c");
         Goods book2 = new Book("d", "e", "f");
-        Goods movie1=new Movie("x","y","z","5");
+        Goods movie1 = new Movie("x", "y", "z", "5");
         goodsList.put(book2, new GoodsStatus());
         goodsList.put(book1, new GoodsStatus());
         goodsList.put(movie1, new GoodsStatus());
@@ -33,7 +33,7 @@ public class GoodsList {
         while (iterator.hasNext()) {
             Goods goods = iterator.next();
             if (privilege.equals("Librarian"))
-                result+=i+++": "+goods.toString()+", keeper: "+goodsList.get(goods).getUserAccount()+"\n";
+                result += i++ + ": " + goods.toString() + ", keeper: " + goodsList.get(goods).getUserAccount() + "\n";
             else if (getStatus(goods.getName()).equals("keep"))
                 result += i++ + ": " + goods.toString() + "\n";
         }
@@ -59,10 +59,10 @@ public class GoodsList {
         return goodsList.get(goods).getStatus();
     }
 
-    public void switchStatus(String bookName,UserAccount userAccount) {
+    public void switchStatus(String bookName, UserAccount userAccount) {
         Goods goods = searchByBookName(bookName);
         if (getStatus(bookName).equals("keep"))
-            goodsList.put(goods, new GoodsStatus("checked",userAccount));
-        else goodsList.put(goods, new GoodsStatus("keep",null));
+            goodsList.put(goods, new GoodsStatus("checked", userAccount));
+        else goodsList.put(goods, new GoodsStatus("keep", null));
     }
 }

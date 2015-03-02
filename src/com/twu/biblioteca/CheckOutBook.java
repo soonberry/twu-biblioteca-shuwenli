@@ -5,10 +5,10 @@ package com.twu.biblioteca;
  */
 public class CheckOutBook extends ManageBook {
 
-    public boolean checkOut(String bookName, GoodsList goodsList,UserAccount userAccount) {
+    public boolean checkOut(String bookName, GoodsList goodsList, UserAccount userAccount) {
         if (goodsList.searchByBookName(bookName) != null) {
             if (goodsList.getStatus(bookName).equals("keep")) {
-                goodsList.switchStatus(bookName,userAccount);
+                goodsList.switchStatus(bookName, userAccount);
                 return true;
             }
         }

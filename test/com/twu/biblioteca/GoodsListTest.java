@@ -21,7 +21,8 @@ public class GoodsListTest {
 
         return map;
     }
-    private UserAccount userAccount=new UserAccount("111-1111","111","","","","Librarian");
+
+    private UserAccount userAccount = new UserAccount("111-1111", "111", "", "", "", "Librarian");
 
     @Test
     public void checked_out_books_should_not_list() throws Exception {
@@ -31,7 +32,7 @@ public class GoodsListTest {
 //        assertEquals("1,a,b,c", bookList.displayList());
         assertEquals("1: d,e,f\n2: a,b,c\n", goodsList.toString());
 
-        goodsList.switchStatus("a",userAccount);
+        goodsList.switchStatus("a", userAccount);
         assertEquals("1: d,e,f\n", goodsList.toString());
     }
 
@@ -57,10 +58,10 @@ public class GoodsListTest {
     @Test
     public void test_Switch_Status() throws Exception {
         GoodsList goodsList = new GoodsList();
-        goodsList.switchStatus("a",userAccount);
+        goodsList.switchStatus("a", userAccount);
 
         assertEquals("checked", goodsList.getStatus("a"));
-        goodsList.switchStatus("a",userAccount);
+        goodsList.switchStatus("a", userAccount);
         assertEquals("keep", goodsList.getStatus("a"));
 
     }

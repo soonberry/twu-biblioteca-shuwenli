@@ -10,22 +10,22 @@ public class UserAccountTest {
 
     @Test
     public void testIsMatch() throws Exception {
-        UserAccount userAccount=new UserAccount("111-1111","111","1","1@1","11111111","Librarian");
+        UserAccount userAccount = new UserAccount("111-1111", "111", "1", "1@1", "11111111", "Librarian");
 
-        assertTrue(userAccount.isMatch("111-1111","111"));
-        assertFalse(userAccount.isMatch("111-1111","222"));
+        assertTrue(userAccount.isMatch("111-1111", "111"));
+        assertFalse(userAccount.isMatch("111-1111", "222"));
 
     }
 
     @Test
     public void testSetPriority() throws Exception {
-        UserAccount userAccount=new UserAccount("111-1111","111","1","1@1","11111111","Librarian");
+        UserAccount userAccount = new UserAccount("111-1111", "111", "1", "1@1", "11111111", "Librarian");
 
-        assertEquals("Librarian",userAccount.getPrivilege());
+        assertEquals("Librarian", userAccount.getPrivilege());
 
         userAccount.setPrivilege("Customer");
 
-        assertEquals("Customer",userAccount.getPrivilege());
+        assertEquals("Customer", userAccount.getPrivilege());
 
     }
 }

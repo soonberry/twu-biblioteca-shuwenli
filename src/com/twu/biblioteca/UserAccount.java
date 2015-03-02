@@ -9,10 +9,13 @@ public class UserAccount {
     String name;
     String email;
     String phone;
-    enum Privilege {Librarian,Customer};
+
+    enum Privilege {Librarian, Customer}
+
+    ;
     Privilege privilege;
 
-    public UserAccount(String number, String password, String name, String email, String phone,String pri) {
+    public UserAccount(String number, String password, String name, String email, String phone, String pri) {
         this.number = number;
         this.password = password;
         this.name = name;
@@ -22,8 +25,8 @@ public class UserAccount {
     }
 
     @Override
-    public String toString(){
-        return "name:"+name+"\nemail:"+email+"\nphone:"+phone;
+    public String toString() {
+        return "name:" + name + "\nemail:" + email + "\nphone:" + phone;
     }
 
     public String getNumber() {
@@ -48,7 +51,7 @@ public class UserAccount {
 
 
     public boolean isMatch(String number, String password) {
-        if (getNumber().equals(number)&&getPassword().equals(password))
+        if (getNumber().equals(number) && getPassword().equals(password))
             return true;
         return false;
     }

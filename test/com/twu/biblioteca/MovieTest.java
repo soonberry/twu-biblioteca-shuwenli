@@ -9,12 +9,12 @@ public class MovieTest {
     @Test
     public void test_the_rating_should_between_1to10_or_unrated() throws Exception {
 
-        Movie movie=new Movie("name","1995","director","1");
+        Movie movie = new Movie("name", "1995", "director", "1");
 
-        assertEquals("name,1995,director,1",movie.toString());
+        assertEquals("name,1995,director,1", movie.toString());
 
-        Movie movie1=new Movie("red","1999","director1","20");
+        Movie movie1 = new Movie("red", "1999", "director1", "20");
 
-        assertEquals("red,1999,director1,unrated",movie1.toString());
+        assertEquals("red,1999,director1,unrated", movie1.toString());
     }
 }

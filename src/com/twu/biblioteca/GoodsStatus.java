@@ -12,9 +12,9 @@ public class GoodsStatus {
         this.userAccount = userAccount;
     }
 
-    public GoodsStatus(){
-        this.status="keep";
-        this.userAccount=null;
+    public GoodsStatus() {
+        this.status = "keep";
+        this.userAccount = null;
     }
 
     public String getStatus() {
