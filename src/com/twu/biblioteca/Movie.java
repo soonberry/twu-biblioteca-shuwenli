@@ -11,9 +11,12 @@ public class Movie extends Goods {
         this.name=name;
         this.yearPublished=yearPublished;
         this.director = director;
-        if (Integer.valueOf(rating)<0||Integer.valueOf(rating)>10||!rating.equals("unrated"))
-            System.out.println("Please input the right rating!");
-        else this.rating = rating;
+        this.rating="unrated";
+        if (Integer.valueOf(rating)>0&&Integer.valueOf(rating)<10||rating.equals("unrated")) {
+            this.rating=rating;
+
+        }
+        else {  System.out.println("Please input the right rating!");}
     }
 
     @Override

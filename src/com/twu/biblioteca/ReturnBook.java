@@ -13,10 +13,10 @@ public class ReturnBook extends ManageBook {
         System.out.println("The book " + bookName + " is sucessfully returned!");
     }
 
-    public boolean checkOut(String bookName, GoodsList goodsList) {
+    public boolean checkOut(String bookName, GoodsList goodsList,UserAccount userAccount) {
         if (goodsList.searchByBookName(bookName) != null) {
             if (goodsList.getStatus(bookName).equals("checked")) {
-                goodsList.switchStatus(bookName);
+                goodsList.switchStatus(bookName,userAccount);
                 return true;
             }
         }

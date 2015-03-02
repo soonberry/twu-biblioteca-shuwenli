@@ -7,7 +7,8 @@ public class BibliotecaApp {
 
         //    System.out.println("Hello, world!");
         Menu menu = new Menu();
-        menu.welcomeMessage();
+        System.out.println(menu.welcomeMessage());
+        menu.login();
         menu.optionMenu();
     }
 

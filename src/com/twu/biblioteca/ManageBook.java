@@ -10,18 +10,18 @@ public abstract class ManageBook {
 
     public abstract void successMessage(String bookName);
 
-    public abstract boolean checkOut(String bookName, GoodsList goodsList);
+    public abstract boolean checkOut(String bookName, GoodsList goodsList,UserAccount userAccount);
 
     private void invalidMessage() {
         System.out.println("Please input the right choice.");
     }
 
-    public boolean checkBooks(GoodsList goodsList) {
+    public boolean checkBooks(GoodsList goodsList,UserAccount userAccount) {
         welcomeMessage();
         Scanner scanner = new Scanner(System.in);
         String option = scanner.nextLine();
         while (!option.equals("exit")) {
-            if (checkOut(option, goodsList))
+            if (checkOut(option, goodsList,userAccount))
                 successMessage(option);
             else
                 invalidMessage();

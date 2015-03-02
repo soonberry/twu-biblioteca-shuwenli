@@ -5,10 +5,10 @@ package com.twu.biblioteca;
  */
 public class CheckOutBook extends ManageBook {
 
-    public boolean checkOut(String bookName, GoodsList goodsList) {
+    public boolean checkOut(String bookName, GoodsList goodsList,UserAccount userAccount) {
         if (goodsList.searchByBookName(bookName) != null) {
             if (goodsList.getStatus(bookName).equals("keep")) {
-                goodsList.switchStatus(bookName);
+                goodsList.switchStatus(bookName,userAccount);
                 return true;
             }
         }
@@ -17,11 +17,11 @@ public class CheckOutBook extends ManageBook {
 
 
     public void welcomeMessage() {
-        System.out.println("Which book do you want to check out?\nPlease input the bookName,or input exit.");
+        System.out.println("Which book/movie do you want to check out?\nPlease input the name of book/movie,or input exit.");
     }
 
     public void successMessage(String bookName) {
-        System.out.println("The book " + bookName + " is sucessfully checked out!");
+        System.out.println("The book/movie " + bookName + " is sucessfully checked out!");
     }
 
 

@@ -7,35 +7,34 @@ import java.util.*;
  */
 public class GoodsList {
 
-    private Map<Goods, String> bookList;
+    private Map<Goods, GoodsStatus> goodsList;
 
-    public GoodsList(Map<Goods, String> map) {
-        bookList = map;
+    public GoodsList(Map<Goods, GoodsStatus> map) {
+        goodsList = map;
     }
 
     public GoodsList() {
-        bookList = new HashMap<Goods, String>();
+        goodsList = new HashMap<Goods, GoodsStatus>();
         Goods book1 = new Book("a", "b", "c");
         Goods book2 = new Book("d", "e", "f");
-        bookList.put(book2, "keep");
-        bookList.put(book1, "keep");
+        Goods movie1=new Movie("x","y","z","5");
+        goodsList.put(book2, new GoodsStatus());
+        goodsList.put(book1, new GoodsStatus());
+        goodsList.put(movie1, new GoodsStatus());
+
     }
 
-    public GoodsList(Book book) {
-        bookList = new HashMap<Goods, String>();
-        bookList.put(book, "keep");
-    }
 
-
-    @Override
-    public String toString() {
+    public String toString(String privilege) {
         String result = "";
         int i = 1;
-        Iterator<Goods> iterator = bookList.keySet().iterator();
+        Iterator<Goods> iterator = goodsList.keySet().iterator();
 
         while (iterator.hasNext()) {
             Goods goods = iterator.next();
-            if (getStatus(goods.getName()).equals("keep"))
+            if (privilege.equals("Librarian"))
+                result+=i+++": "+goods.toString()+", keeper: "+goodsList.get(goods).getUserAccount()+"\n";
+            else if (getStatus(goods.getName()).equals("keep"))
                 result += i++ + ": " + goods.toString() + "\n";
         }
 
@@ -43,7 +42,7 @@ public class GoodsList {
     }
 
     public Goods searchByBookName(String bookName) {
-        Iterator<Goods> iterator = bookList.keySet().iterator();
+        Iterator<Goods> iterator = goodsList.keySet().iterator();
 
         while (iterator.hasNext()) {
             Goods goods = iterator.next();
@@ -57,13 +56,13 @@ public class GoodsList {
 
     public String getStatus(String bookName) {
         Goods goods = searchByBookName(bookName);
-        return bookList.get(goods);
+        return goodsList.get(goods).getStatus();
     }
 
-    public void switchStatus(String bookName) {
+    public void switchStatus(String bookName,UserAccount userAccount) {
         Goods goods = searchByBookName(bookName);
         if (getStatus(bookName).equals("keep"))
-            bookList.put(goods, "checked");
-        else bookList.put(goods, "keep");
+            goodsList.put(goods, new GoodsStatus("checked",userAccount));
+        else goodsList.put(goods, new GoodsStatus("keep",null));
     }
 }
