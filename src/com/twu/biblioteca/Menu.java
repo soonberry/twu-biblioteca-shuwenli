@@ -1,5 +1,7 @@
 package com.twu.biblioteca;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Scanner;
 
 /**
@@ -69,6 +71,11 @@ public class Menu {
         System.out.println("Please choose:\n1.Check out book/movie;\n2.Return book/movie;\n3.Quit;");
         Scanner scanner = new Scanner(System.in);
         String option = scanner.nextLine();
+        HashMap<String, ManageBook> commandMap = new HashMap<String, ManageBook>();
+        commandMap.put("1", new CheckOutBook());
+        commandMap.put("2", new ReturnBook());
+
+        commandMap.get(option).checkBooks(booklist, userAccount);
         while (!option.equals("3")) {
             if (option.equals("1")) {
                 CheckOutBook checkOutBook = new CheckOutBook();

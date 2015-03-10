@@ -38,6 +38,10 @@ public class GoodsList {
                 result += i++ + ": " + goods.toString() + "\n";
         }
 
+        for (Goods goods : goodsList.keySet()) {
+
+        }
+
         return result;
     }
 

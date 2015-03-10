@@ -22,6 +22,8 @@ public class CheckOutBook extends ManageBook {
 
     public void successMessage(String bookName) {
         System.out.println("The book/movie " + bookName + " is sucessfully checked out!");
+
+
     }
 
 
